@@ -1,3 +1,18 @@
+<?php
+session_start();
+if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['decision'])) {
+    $decision = $_POST['decision'];
+
+    if ($decision === 'rendido') {
+        header("Location: rendido.php");
+        exit();
+    }
+} else {
+    header("Location: screen5.php");
+    exit();
+}
+?>
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -29,7 +44,7 @@
         </p><br>
         <canvas id="drawingCanvas" width="500" height="300" style="border:1px solid #ccc;"></canvas>
         <form action="screen6.php" method="post">
-            <button id="guardarDibujoBtn">Pedir ayuda</button>
+            <button id="screen6" name="screen6">Pedir ayuda</button>
         </form>
     </div>
 </body>

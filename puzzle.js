@@ -1,11 +1,8 @@
 var rows = 5;
 var columns = 5;
-
 var currTile;
 var otherTile;
-
 var turns = 0;
-
 window.onload = function() {
     //initialize the 5x5 board
     for (let r = 0; r < rows; r++) {
@@ -25,7 +22,23 @@ window.onload = function() {
             document.getElementById("board").append(tile);
         }
     }
+    function checkPuzzleComplete() {
+        let boardTiles = document.getElementById("board").getElementsByTagName("img");
+        let correctOrder = Array.from({ length: rows * columns }, (_, i) => (i + 1).toString());
 
+        for (let i = 0; i < boardTiles.length; i++) {
+            let tileSrc = boardTiles[i].src;
+            let tileNumber = tileSrc.substring(tileSrc.lastIndexOf("/") + 1, tileSrc.lastIndexOf("."));
+
+            if (tileNumber !== "blank" && tileNumber !== correctOrder[i]) {
+                return false; // El rompecabezas no está completo
+            }
+        }
+
+        alert("¡Felicidades! Has completado el rompecabezas.");
+        return true; // El rompecabezas está completo
+    }
+    
     //pieces
     let pieces = [];
     for (let i=1; i <= rows*columns; i++) {
@@ -75,7 +88,7 @@ function dragLeave() {
 }
 
 function dragDrop() {
-    otherTile = this; //this refers to image that is being dropped on
+    otherTile = this; 
 }
 
 function dragEnd() {
@@ -88,5 +101,5 @@ function dragEnd() {
     otherTile.src = currImg;
 
     turns += 1;
-    document.getElementById("turns").innerText = turns;
+checkForWin();
 }
