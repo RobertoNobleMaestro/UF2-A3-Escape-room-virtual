@@ -1,0 +1,411 @@
+
+.enigma{
+    background-image: url(../img/prison_cell___pixel_art_x4_size_by_saulica_d81b58d-414w-2x.jpg);
+        background-size: cover; 
+        background-position: center; 
+        margin: 0;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 80vh;
+        text-align: center;
+}
+.contenedor {
+    position: relative;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    text-align:center;
+    background-color: #4848487e;
+    padding: 40px;
+    border-radius: 5px;
+}
+.contenedor {
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.img1 {
+    background-image: url('../img/enigma.jpg');
+    position: absolute;
+    top: 45%;
+    left: 8.9%;
+    width: 1%;
+    height: 1%;
+    background-size: cover;
+    transition: transform 0.3s ease; /* Transición suave de transformación */
+}
+
+.img1:hover {
+    transform: scale(10); /* Aumenta el tamaño de la imagen al pasar el cursor sobre ella */
+} 
+
+@keyframes palpitacion {
+    0% { transform: scale(1); } /* Tamaño normal */
+    50% { transform: scale(1.1); } /* Aumenta el tamaño */
+    100% { transform: scale(1); } /* Vuelve al tamaño normal */
+}
+
+.palpitante {
+    animation: palpitacion 1s infinite; /* Aplica la animación de palpitación de forma infinita */
+    font-family: 'Special Elite', cursive;
+    font-size: 24px;
+    background-color: black;
+    background: linear-gradient(45deg, #444 0%, #999 10%, #666 50%, #999 90%, #444 100%);
+    -webkit-background-clip: text; /* Esto permite que el fondo se muestre solo donde está el texto */
+    -webkit-text-fill-color: transparent; /* Oculta el color del texto original */
+    font-weight: bold; /* Puedes cambiar "bold" por otros valores según lo necesites */
+
+}
+
+.maquina {
+    overflow: hidden;
+    font-size: 15px;
+    font-family: "Special Elite", system-ui;
+    white-space: nowrap;
+    margin: 0 auto;
+    animation: escribir 4.5s steps(40) forwards;
+}
+
+@keyframes escribir {
+    from {
+    width: 0;
+    }
+
+    to {
+    width: 100%;
+    border-right: 0px solid #ffffff;
+    }
+}
+
+
+.input-carcel {
+    width: 200px;
+    padding: 8px;
+    border: 2px solid #333; /* Borde sólido oscuro */
+    border-radius: 4px; /* Bordes redondeados */
+    background-color: #f1f1f1; /* Fondo gris claro */
+    font-family: Arial, sans-serif; /* Fuente legible */
+}
+
+.boton-carcel {
+    padding: 10px 20px;
+    margin-right: 10px;
+    border: 2px solid #333; /* Borde sólido oscuro */
+    border-radius: 4px; /* Bordes redondeados */
+    background-color: #555; /* Fondo gris oscuro */
+    color: #fff; /* Texto blanco */
+    font-family: Arial, sans-serif; /* Fuente legible */
+    cursor: pointer;
+}
+
+/* Estilo para los botones al pasar el cursor */
+.boton-carcel:hover {
+    background-color: #333; /* Fondo más oscuro al pasar el cursor */
+}
+
+.interrogatorio{
+    background-image: url(../img/interrogatorio1.jpg);
+    background-size: cover; 
+    background-position: center; 
+    font-family: 'Special Elite', cursive;
+    font-size: 24px;
+    margin: 0;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 80vh;
+    text-align: center;
+}
+
+@keyframes shake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-3px); }
+    50% { transform: translateX(3px); }
+    75% { transform: translateX(-3px); }
+    100% { transform: translateX(0); }
+}
+
+.titulo {
+    animation: shake 0.5s infinite;
+    font-family: 'Special Elite', cursive;
+    font-size: 24px;
+    background: linear-gradient(45deg, #232323 0%, #999 10%, #ffffff 50%, #575656 90%, #fffbfb 100%);
+    -webkit-background-clip: text; /* Esto permite que el fondo se muestre solo donde está el texto */
+    -webkit-text-fill-color: transparent; /* Oculta el color del texto original */
+    font-weight: bold;
+}
+
+
+/* Estilo para los cuadros de diálogo */
+.prompt-dialog {
+    background-color: #222; /* Color de fondo del cuadro de diálogo */
+    color: #fff; /* Color de texto blanco */
+    border: 2px solid #444; /* Borde sólido oscuro */
+    border-radius: 8px; /* Bordes redondeados */
+    padding: 20px; /* Espaciado interior */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Sombra */
+}
+
+/* Estilo para los botones de los cuadros de diálogo */
+.prompt-dialog button {
+    padding: 8px 16px; /* Espaciado interior */
+    margin-top: 10px; /* Espaciado superior */
+    border: none; /* Sin borde */
+    border-radius: 4px; /* Bordes redondeados */
+    background-color: #555; /* Fondo gris oscuro */
+    color: #fff; /* Texto blanco */
+    cursor: pointer; /* Cambia el cursor al pasar el ratón */
+}
+
+/* Estilo para los botones de los cuadros de diálogo al pasar el cursor */
+.prompt-dialog button:hover {
+    background-color: #444; /* Fondo más oscuro al pasar el cursor */
+}
+
+.img-button {
+    background-color: #7f9b80; /* Color de fondo verde militar */
+    color: white; /* Color del texto */
+    padding: 10px 20px; /* Relleno */
+    font-size: 16px; /* Tamaño de fuente */
+    border: none; /* Sin borde */
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+    transition: background-color 0.3s; /* Transición suave para el cambio de color */
+    border-radius: 5px; /* Bordes redondeados */
+}
+
+.img-button:hover {
+    background-color: #154118; /* Cambia el color de fondo al pasar el cursor */
+}
+
+
+.pasillo{
+    background-image: url(../img/pasillo1.gif);
+    background-repeat: no-repeat; 
+        background-size: cover; 
+        background-position: center; 
+        margin: 0;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 80vh;
+        text-align: center;
+}
+
+.titulopasillo{
+    font-family: 'Special Elite', cursive;
+    font-size: 24px; 
+    color: white;
+    text-shadow: 0 0 5px white, 0 0 10px white, 0 0 15px white, 0 0 20px white, 0 0 25px white, 0 0 30px white, 0 0 35px white; /* Sombra del texto para el efecto de destello */
+    animation: destello 0.7s infinite alternate; /* Animación para el efecto de destello */
+}
+
+@keyframes destello {
+    from { opacity: 1; } /* Opacidad inicial */
+    to { opacity: 0; } /* Opacidad final */
+}
+
+.boton-pasillo{
+    background-color:#757775; /* Color de fondo del botón */
+    color: white; /* Color del texto */
+    padding: 10px 20px; /* Relleno */
+    font-size: 16px; /* Tamaño de fuente */
+    border: none; /* Sin borde */
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+    transition: background-color 0.3s; 
+    border: none; /* Sin borde */
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+    transition: transform 0.3s;
+    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s; /* Transiciones suaves */
+    /* Transición suave para transformar */
+}
+
+.boton-pasillo:hover {
+    background-color: #6b6b7d; /* Cambia el color de fondo al pasar el cursor */
+    transform: scale(1.5);
+    box-shadow: 0px 12px 24px rgba(0, 0, 0, 0.3); /* Incrementa más la sombra al pasar el cursor */
+
+}
+
+.canva{
+    margin-left: 30px;
+}
+
+.dibujo{
+    background-image:url(../img/almacen.gif);
+    background-repeat: no-repeat; 
+        background-size: cover; 
+        background-position: center; 
+        margin: 0;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+}
+
+.papiro{
+        position: relative;
+        background-image: url('../img/papiro.png');
+        top: 100%; 
+        left: 100%;
+        background-size: cover;
+        background-position: center;
+
+    }
+
+    .content {
+        position: relative;
+        padding: 20px;
+        border-radius: 10px;
+        margin: 0 auto;
+        max-width: 600px; /* Ancho máximo del contenido */
+        text-align:center; /* Centra el contenido */
+    }
+    
+    .ayuda {
+        padding: 10px 20px; /* Ajusta el relleno para hacerlo más alargado */
+        background-color: #b3933d; /* Color que se asemeja al papel de pergamino */
+        border: none; /* Sin borde */
+        border-radius: 5px; /* Bordes redondeados */
+        color: #333; /* Color del texto */
+        font-size: 16px; /* Tamaño del texto */
+        font-weight: bold; /* Texto en negrita */
+    }
+
+    .codigo{
+        background-image:url(../img/codigo.gif);
+        background-repeat: no-repeat; 
+            background-size: cover; 
+            background-position: center; 
+            margin: 0;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+.palabra{
+    color:#00ff00;
+    text-align: center;
+}
+
+.television{
+    background-image: url(../img/static2.gif);
+    background-size: 200%;
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    border: solid #333; /* Grosor y color del borde */
+    border-radius: 30px; /* Bordes redondeados */
+    box-shadow: inset 0 0 20px #000; /* Sombra interna para simular profundidad */
+    padding: 20px; /* Espacio interno para separar la imagen del borde */
+    width: 500px; /* Ancho deseado */
+    height: 490px;
+}
+
+.tv-antigua {
+    background-color: #000;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.tv-input {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    border: 2px solid #999;
+    border-radius: 5px;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+}
+
+.tv-button {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+    border: 2px solid #999;
+    border-radius: 5px;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.tv-button:hover {
+    background-color: #444;
+}
+
+.final{
+    background-image:url(../img/paisajefinal.gif);
+    background-repeat: no-repeat; 
+        background-size: cover; 
+        background-position: center; 
+        margin: 0;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+}
+
+.textofinal{
+    font-family: 'Special Elite', cursive;
+    font-size: 24px; 
+}
+
+.creditos {
+    position: fixed;
+    top: -100px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    padding: 10px;
+    margin-top: 300px;
+    animation: desplazar 30s linear; /* Reduje la duración de la animación a 5 segundos */
+    animation-fill-mode: forwards;
+}
+
+@keyframes desplazar {
+    0% { top: -100px; opacity: 0; } /* Inicia con opacidad 0 y posición fuera de la pantalla */
+    5% { opacity: 1; } /* Aumenta gradualmente la opacidad durante el primer 5% de la animación */
+    90% { opacity: 0; } /* Mantén la opacidad durante la mayor parte de la animación */
+    100% { top: 100%; opacity: 0; } /* Desplázate hacia abajo y desvanece al final */
+}
+
+.volver {
+    background-color: #333; /* Color de fondo oscuro */
+    color: white; /* Color del texto blanco */
+    border: 2px solid #605e5e; /* Borde grueso */
+    border-radius: 5px; /* Bordes redondeados */
+    padding: 10px 20px; /* Espaciado interno */
+    font-size: 16px; /* Tamaño del texto */
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s; /* Transiciones suaves */
+}
+
+.volver:hover {
+    background-color: #555; /* Cambia el color de fondo al pasar el cursor */
+    color: #eee; /* Cambia el color del texto al pasar el cursor */
+    border-color: #454444; /* Cambia el color del borde al pasar el cursor */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,22 +1,4 @@
-<?php
-$pistas_acertijo = array(
-    "enigma" => "La clave es algo que utilizaban los alemanes en la epoca para encriptar mensajes",
-);
-$respuesta_correcta = "enigma";
-$mensaje_error = "";
-if (isset($_POST['Adivinar'])) {
-    $respuesta_correcta = "enigma";
-    if ($_POST['respuesta'] == $respuesta_correcta) {
-        header("Location: screen2.php");
-        exit();
-    } else {
-        $mensaje_error = "Respuesta incorrecta. ¡Inténtalo de nuevo!";
-    }
-}
-if (isset($_POST['Pista']) && isset($pistas_acertijo[$respuesta_correcta])) {
-    $pista_mostrada = $pistas_acertijo[$respuesta_correcta];
-}
-?>
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -31,13 +13,41 @@ if (isset($_POST['Pista']) && isset($pistas_acertijo[$respuesta_correcta])) {
         integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <title>Escape room WW2</title>
 </head>
-<body>
+<body class="enigma" class="responsive">
+    <?php
+    session_start();
+    
+    $pistas_acertijo = array(
+        "enigma" => "La clave de este acertijo la encontrarás en el libro azul de la estantería...",
+    );
+    $respuesta_correcta = "enigma";
+    $mensaje_error = "";
+    $pista_mostrada = "";
+    
+    if (isset($_POST['Adivinar'])) {
+        $respuesta_correcta = "enigma";     
+        if ($_POST['respuesta'] == $respuesta_correcta) {
+            $_SESSION['screen1'] = true;
+            header("Location: screen2.php");
+            exit();
+        } else {
+            $mensaje_error = "Respuesta incorrecta.";
+        }
+    }
+    
+    if (isset($_POST['Pista']) && isset($pistas_acertijo[$respuesta_correcta])) {
+        $pista_mostrada = $pistas_acertijo[$respuesta_correcta];
+    }
+    session_destroy();
+
+    ?>
     <div class="contenedor">
-        <p class="texto-maquina special-elite-regular">Para escapar de tu celda necesitarás adivinar el siguiente
-            acertijo para que se pueda abrir la puerta</p><br>
-        <p class="texto-maquina special-elite-regular">En la Segunda Guerra Mundial, un objeto crucial para la
+        <h3 class="palpitante">Para escapar de tu celda necesitarás adivinar el siguiente
+            acertijo para que se pueda abrir la puerta</h3><br>
+        <p class="maquina">En la Segunda Guerra Mundial, un objeto crucial para la
             victoria se escondía en la sombra,<br> pero no era un soldado ni un arma. Los aliados lo buscaban
             desesperadamente, y su ausencia podía cambiar el curso de la guerra. <br> ¿Qué objeto es este?</p><br>
+
         <?php
         if (!empty($mensaje_error)) {
             echo '<div class="alert alert-danger" role="alert">' . $mensaje_error . '</div>';
@@ -50,11 +60,11 @@ if (isset($_POST['Pista']) && isset($pistas_acertijo[$respuesta_correcta])) {
         </div>
         <?php endif; ?>
         <form id="formulario_acertijo" action="screen1.php" method="post">
-            <input type="text" name="respuesta">
-            <br>
-            <br>
-            <button type="submit" name="Pista">Pista</button>
-            <button type="submit" name="Adivinar">Adivinar</button>
-        </form>
+    <input type="text" name="respuesta" class="input-carcel">
+    <button type="submit" name="Pista" class="boton-carcel">Pista</button>
+    <button type="submit" name="Adivinar" class="boton-carcel">Adivinar</button>
+</form>
+    </div>
+    <div class="img1">
     </div>
 </body>

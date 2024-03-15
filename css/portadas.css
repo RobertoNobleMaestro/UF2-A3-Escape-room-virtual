@@ -1,3 +1,4 @@
+
 .indice {
   margin: 0;
   overflow: hidden;
@@ -54,18 +55,20 @@
   }
 }
 
+
 .contenedor {
-  position: relative;
+  position:relative;
   color: white;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center; /* Centra verticalmente el contenido */
   text-align: center;
   background-color: #4848487e;
   padding: 40px;
   border-radius: 5px;
-
 }
+
 
 .boton-ww2 {
   background-color: #333;
@@ -88,14 +91,43 @@
 }
 
 .rendicion {
+  background-image: url(../img/7c1fd18963a812328f594954c17c6c10.jpg);
+  background-size: cover;
+  background-position: center;
   margin: 0;
-  overflow: hidden;
+  padding: 0;
+  box-sizing: border-box;
   display: flex;
-  align-items: center;
   justify-content: center;
-  height: 100vh;
-  text-align: centerS;
+  align-items: center;
+  height: 100vh; /* Establece el alto del cuerpo al 100% del viewport */
+}
 
+.sangre {
+  align-items: center;
+  font-size: 4em;
+  font-family: 'Special Elite', cursive;
+  color: #ff0000;
+  animation: blood-drip 0.5s infinite alternate;
+
+}
+@keyframes blood-drip {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(10px);
+  }
+}
+
+.boton-ww2 {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #424542;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
 }
 
 #board {
@@ -129,3 +161,8 @@
   height: 79px;
   border: 0.5px solid lightblue;
 }
+
+.enigma{
+  background-image: url(../img/prison_cell___pixel_art_x4_size_by_saulica_d81b58d-414w-2x.jpg);
+}
+

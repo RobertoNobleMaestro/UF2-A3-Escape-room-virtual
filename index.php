@@ -1,3 +1,6 @@
+    <?php
+    session_start();
+?>
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -25,7 +28,12 @@
             <button id="botonWW2" class="boton-ww2" name="screen2">Rendirse</button>          
         </form>
     </div>
-</body>
+</body class="responsive">
+<?php
+    if(isset($_GET['tramposo'])){
+        session_destroy();
+    }
+?>
 <script>
     // Después de la animación, elimina el borde derecho
     const bordeDerecho = document.querySelector('.borde-derecho');
@@ -38,3 +46,4 @@ document.getElementById('botonWW2').addEventListener('click', function() {
 });
 
 </script>
+</body>

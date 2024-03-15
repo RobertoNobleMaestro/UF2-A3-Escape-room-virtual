@@ -1,8 +1,12 @@
 <?php
+/*
 session_start();
-if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['decision'])) {
+if (!isset($_POST['decision'])){
+    header("location: index.php?tramposo=1");
+    exit(); 
+} 
+if (isset($_POST['decision'])) {
     $decision = $_POST['decision'];
-
     if ($decision === 'rendido') {
         header("Location: rendido.php");
         exit();
@@ -10,9 +14,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['decision'])) {
 } else {
     header("Location: screen5.php");
     exit();
-}
+}*/
 ?>
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -27,25 +30,36 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['decision'])) {
         integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <title>Escape room WW2</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/3.6.6/fabric.min.js"></script>
-    <script>
+    <script class="canva">
         document.addEventListener("DOMContentLoaded", function () {
             var canvas = new fabric.Canvas('drawingCanvas', {
                 isDrawingMode: true,
-                width: 500,
-                height: 500
+                width: 400,
+                height: 400
             });   
         });
     </script>
 </head>
-<body>
-    <div class="contenedor">
-        <p class="texto-maquina special-elite-regular">
-            Encuentras un papel y un lapiz al salir de la celda y justamente escuchas voces al otro lado de la puerta de la salida pideles ayuda, si no lo intentas moriras y si son enemigos también.
-        </p><br>
-        <canvas id="drawingCanvas" width="500" height="300" style="border:1px solid #ccc;"></canvas>
+<body class="dibujo" class="responsive">
+    <div class="content">
+    <div class="papiro"> 
+        <div class="maquina">   
+            <br>   
+        <h3 class="titulo2">Has elegido bien camarada<br></h3>
+        <br>
+        <br>
+        <p>Por suerte has acabado en el amacén de la prisión<br>
+        y escuchas desde dentro voces familiares<br>
+        tus camaradas estan cerca...<br>
+        Pide ayuda pero, !cuidado¡ todo esta  <br>
+        lleno de guardias.<br>
+        Esperemos no caiga en manos equivocadas...<br></p>
+        </div>
+        <canvas id="drawingCanvas" width="300" height="300" style="border:1px solid #ccc;"></canvas>
         <form action="screen6.php" method="post">
-            <button id="screen6" name="screen6">Pedir ayuda</button>
+            <button id="screen6" name="carta" class="ayuda">&#10072;&#10072;&#10072;&#10072;&#10016;&#10072;&#10072;&#10072;&#10072;</button>
         </form>
+    </div>
     </div>
 </body>
 
