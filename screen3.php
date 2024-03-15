@@ -10,17 +10,19 @@ if (!isset($_SESSION['screen1']) || $_SESSION['screen1'] !== true || !isset($_SE
 ?>
 <head>
     <title>Image Puzzle</title>
-    <link href="/css/puzzles.css" rel="stylesheet" />
+    <link href="css/puzzle.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap" rel="stylesheet">
     <script src="puzzle.js"></script>
 </head>
 
-<body class="fondo" class="responsive">
+<body>
     <div id="collage">
-        <h2 class="candado">Candado</h2>
-        <hr/>
+        <h2>Candado</h2>
+        <div class="columna-ex">
+            <p>Al salir corriendo del interrogatorio, te encuentras con tres puertas y cada una tiene una dificultad de candado diferente elige la que más te convenga</p>
+        </div>
         <div id="playPanel" style="padding:5px;display:none;">
             <h3 id="imgTitle"></h3>
-            <hr/>
             <div style="display:inline-block; margin:auto; width:95%; vertical-align:top;">
                 <ul id="sortable" class="sortable"></ul>
                 <div id="actualImageBox">
@@ -74,3 +76,4 @@ if (!isset($_SESSION['screen1']) || $_SESSION['screen1'] !== true || !isset($_SE
         </script>
     </div>
 </body>
+

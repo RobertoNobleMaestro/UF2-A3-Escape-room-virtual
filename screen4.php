@@ -1,5 +1,4 @@
 <?php
-/*
 session_start();
 if (!isset($_SESSION['screen1']) || $_SESSION['screen1'] !== true || !isset($_SESSION['screen3']) || $_SESSION['screen3'] !== true) {
     header("location: index.php?tramposo=1");
@@ -12,7 +11,6 @@ if (!isset($_POST['screen4'])) {
     $_SESSION['screen4'] = true;
 
 }
-*/
 ?> 
 <head>
     <meta charset="UTF-8">

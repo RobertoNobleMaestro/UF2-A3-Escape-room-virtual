@@ -1,5 +1,4 @@
 <?php
-/*
 session_start();
 if (!isset($_POST['decision'])){
     header("location: index.php?tramposo=1");
@@ -14,7 +13,7 @@ if (isset($_POST['decision'])) {
 } else {
     header("Location: screen5.php");
     exit();
-}*/
+}
 ?>
 <head>
     <meta charset="UTF-8">

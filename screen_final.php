@@ -1,10 +1,11 @@
 <?php
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+session_start();
+if ($_SERVER["REQUEST_METHOD"] == "POST" ) {
     $palabra = strtolower($_POST["palabra"]);
     if ($palabra === "salida") {
         header("Location: screen_final.php");
     } else {
-        header("Location: screen6.php?error=1");
+        header("Location: index.php?vuelve_a_comenzar=1");
         exit();
     }   
 }

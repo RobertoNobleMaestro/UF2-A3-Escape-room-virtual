@@ -35,13 +35,11 @@
     }
 ?>
 <script>
-    // Después de la animación, elimina el borde derecho
     const bordeDerecho = document.querySelector('.borde-derecho');
     bordeDerecho.addEventListener('animationend', () => {
         bordeDerecho.style.borderRight = 'none';
     });
 document.getElementById('botonWW2').addEventListener('click', function() {
-    // Cambia 'otra_pagina.html' por la ruta de la página a la que deseas redirigir
     window.location.href = 'screen1.php';
 });
 

@@ -1,30 +1,18 @@
 <?php
-/*
 session_start();
-$mensaje_error = "Respuesta incorrecta. ¡Inténtalo de nuevo!";
-
-// Verificar si la sesión está establecida
-if (!isset($_SESSION['screen1']) || $_SESSION['screen1'] !== true || !isset($_SESSION['carta'])) {
-    header("Location: index.php?tramposo=1");
-    exit(); 
-} else {
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $_SESSION['carta'] = true;
-}
-
-// Verificar si el formulario ha sido enviado
-if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['carta'])) {
     $decision = strtolower($_POST['carta']);
     $esEnemigo = random_int(0, 10);
     if ($esEnemigo <= 3) {
         header("Location: rendido.php");
         exit();
-    } else {
-        header("Location: screen6.php");
-        exit();
     }
-} */
+} else {
+    header("location: index.php?tramposo=1");
+        exit(); 
+}
 ?>
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -63,9 +51,4 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['carta'])) {
         <input type="submit" value="Verificar" class="tv-button">
     </form>
 </div>
-    <?php
-        if (isset($_GET["error"]) && $_GET["error"] === "1") {
-            echo '<div class="alert alert-danger" role="alert">' . $mensaje_error . '</div>';
-        }
-    ?>
 </body>

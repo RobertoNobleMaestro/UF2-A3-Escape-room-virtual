@@ -4,6 +4,7 @@ if (!isset($_SESSION['screen1']) || $_SESSION['screen1'] !== true) {
     header("location: index.php?tramposo=1");
     exit(); 
 } else {
+    $_SESSION['screen1'] = true; 
 }
 ?>
 <head>
@@ -19,43 +20,43 @@ if (!isset($_SESSION['screen1']) || $_SESSION['screen1'] !== true) {
         integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <title>Escape room WW2</title>
     <body class="interrogatorio" class="responsive">
-        <script>
-            function interrogatorio() {
-                var respuesta = prompt("Te encuentras en un interrogatorio. ¿Cómo decides enfrentar al interrogador?\n1. Cooperar\n2. Mantener el silencio\n3. Negociar información\n4. Intentar escapar del interrogatorio");
-                if (respuesta) {
-                    respuesta = respuesta.toLowerCase();
-                    switch (respuesta) {
-                        case "1":
-                        case "2":
-                        case "3":
-                            alert("Tu decisión ha tenido consecuencias.");
-                            window.location.href = "rendido.php";
-                            break;
-                        case "4":
-                            window.location.href = "screen3.php";
-                            break;
-                        default:
-                            alert("Respuesta no válida. Inténtalo de nuevo.");
-                            break;
-                    }
-                } else {
+    <script>
+    function interrogatorio() {
+        var respuesta = prompt("Te encuentras en un interrogatorio. ¿Cómo decides enfrentar al interrogador?\n1. Cooperar\n2. Mantener el silencio\n3. Negociar información\n4. Intentar escapar del interrogatorio");
+        if (respuesta) {
+            respuesta = respuesta.toLowerCase();
+            switch (respuesta) {
+                case "1":
+                case "2":
+                case "3":
+                    alert("Tu decisión ha tenido consecuencias.");
+                    window.location.href = "rendido.php";
+                    break;
+                case "4":
+                    document.getElementById("respuestaForm").value = "4"; // Establece el valor del campo oculto
+                    document.getElementById("form").submit(); // Envía el formulario
+                    break;
+                default:
                     alert("Respuesta no válida. Inténtalo de nuevo.");
-                }
+                    break;
             }
-        </script>
+        } else {
+            alert("Respuesta no válida. Inténtalo de nuevo.");
+        }
+    }
+</script>
 </head>
-    <div class="contenedor">
-        <h3 class="titulo">"Te encuentras en un interrogatorio ya que te han encontrado los
+         <div class="contenedor">
+            <h3 class="titulo">"Te encuentras en un interrogatorio ya que te han encontrado los
             guardias saliendo de la celda. Se han quedado perplejos ya que era imposible,<br>
             entonces el capitán al mando del regimiento carcelero<br>
             se interesa por ti."<br><h3>
                 <br>
             <p class="maquina">¿Cómo decides enfrentar al interrogador?<br>
             ¿Qué acción decides realizar?</p><br>
-            <form action="screen3.php" method="post">
-    <button onclick="interrogatorio()" class="img-button" name="screen3">ELEGIR</button>
-</form>
-    </div>
-   
-
+            <form id="form" action="screen3.php" method="post">
+                <input type="hidden" id="respuestaForm" name="respuesta"> 
+                <button onclick="interrogatorio()" class="img-button" name="screen3">ELEGIR</button>
+            </form>
+        </div>
 </body>
